@@ -7,6 +7,8 @@ class helloHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('content-type','text/html')
         self.end_headers()
+        self.wfile.write('Hello World'.encode())
+
 
 
 
@@ -17,5 +19,7 @@ def main():
     server.serve_forever()
 
 
+if __name__ == '__main__':
+    main()
 
 
