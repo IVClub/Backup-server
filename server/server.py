@@ -1,26 +1,19 @@
 # First try to setup a for loop that echos back a message
 from http.server import HTTPServer, BaseHTTPRequestHandler
-import os
-import ssl
+from flask import Flask
 
-class helloHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('content-type','text/html')
-        self.end_headers()
-        self.wfile.write('Hello World'.encode())
+app = Flask(__name__)
 
 
+@app.route('/')
+
+def hello():
+    return "Hello World!"
 
 
-def main():
-    Port = 8000
-    server = HTTPServer(('',Port), helloHandler)
-    print("server is running on port %s" % Port)
-    server.serve_forever()
 
 
 if __name__ == '__main__':
-    main()
+    app.run(host='0.0.0.0',port=5555)
 
 
