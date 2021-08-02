@@ -1,5 +1,6 @@
 # First try to setup a for loop that echos back a message
 from http.server import HTTPServer, BaseHTTPRequestHandler
+import os
 import ssl
 
 class helloHandler(BaseHTTPRequestHandler):
@@ -13,7 +14,7 @@ class helloHandler(BaseHTTPRequestHandler):
 
 
 def main():
-    Port = 8080
+    Port = 8000
     server = HTTPServer(('',Port), helloHandler)
     print("server is running on port %s" % Port)
     server.serve_forever()
