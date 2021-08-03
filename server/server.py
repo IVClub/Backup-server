@@ -2,7 +2,7 @@
 import os
 import subprocess
 from flask import Flask, request
-from config import ROOT_DIR
+import sys
 
 app = Flask(__name__)
 
@@ -24,10 +24,8 @@ def upload_file():
         f = request.files['file']
 
         src = 'server_storage/' + secure_filename(f.filename)
-
-
-        if not os.path.exists(ROOT_DIR+"/server_storage"):
-            os.makedirs(ROOT_DIR+"/server_storage")
+        if not os.path.exists('server_storage/'):
+            os.makedirs('server_storage/')
 
         f.save(src)
         upload_to_cloud(src)
