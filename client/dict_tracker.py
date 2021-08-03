@@ -7,8 +7,8 @@ import requests
 
 
 def post_file2server(src):
-    #server_addrs = "http://127.0.0.1:5000/upload"
-    server_addrs = "http://34.135.196.128:5000/upload"
+    server_addrs = "http://127.0.0.1:5000/upload"
+    #server_addrs = "http://34.135.196.128:5000/upload"
     data = {'file': open(src, 'rb')}
 
     getdata = requests.post(server_addrs, files=data)
